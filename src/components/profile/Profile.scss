@@ -1,0 +1,72 @@
+.Profile{
+    .container{
+        display: flex;
+        gap: 20px;
+        height: 100vh;
+    }
+
+    .left-part{
+        flex: 2;
+        height: 100%;
+        overflow-y: auto;
+
+    }
+
+    .left-part::-webkit-scrollbar{
+        display: none;
+    }
+
+    .right-part{
+        flex: 1;
+        margin-top: 20px;
+    }
+
+    .profile-card{
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+
+        .user-img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: var(--border-color) 1px solid; 
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-name, .follower-info{
+            margin-top: 12px;
+        }
+
+        .follower-info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .follow, .update-profile{
+            margin-top: 20px;
+            display: block;
+        }
+
+        .follow{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            font-weight: bold;
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+    }
+}

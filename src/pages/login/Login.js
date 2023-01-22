@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { TOAST_FAILURE, TOAST_SUCCESS } from '../../App'
+import { showToast } from '../../redux/slices/appConfigSlice'
 import { axiosClient } from '../../utils/axiosClient'
 import { KEY_ACCESS_TOKEN, setItem } from '../../utils/localStorageClient'
 import './Login.scss'
@@ -9,19 +12,26 @@ function Login() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const result = await axiosClient.post('auth/login',{
+        const response = await axiosClient.post('auth/login',{
           email, 
           password
         });
-        console.log(result)
-        setItem(KEY_ACCESS_TOKEN, result.accessToken);
+        setItem(KEY_ACCESS_TOKEN, response.result.accessToken);
         navigate('/')
+        dispatch(showToast({
+          type: TOAST_SUCCESS,
+          message: 'Logged in successfully'
+        }))
       } catch (error) {
-        console.log(error)
+       dispatch(showToast({
+        type: TOAST_FAILURE,
+        message: error
+       })) 
       }
       
   }

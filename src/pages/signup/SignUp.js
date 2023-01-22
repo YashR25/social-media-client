@@ -3,12 +3,16 @@ import './SignUp.scss'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { axiosClient } from '../../utils/axiosClient'
+import { showToast } from '../../redux/slices/appConfigSlice'
+import { TOAST_FAILURE, TOAST_SUCCESS } from '../../App'
+import { useDispatch } from 'react-redux'
 
 function SignUp() {
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -18,9 +22,15 @@ function SignUp() {
           email, 
           password
         });
-        console.log(result)
+        dispatch(showToast({
+          type: TOAST_SUCCESS,
+          message: 'Signed up Successfully'
+        }))
       } catch (error) {
-        console.log(error)
+        dispatch(showToast({
+          type: TOAST_FAILURE,
+          message:error
+        }))
       }
       
   }

@@ -1,0 +1,32 @@
+.Feed{
+    .container{
+        display: flex;
+        gap: 20px;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .left-part{
+        flex: 2;
+        height: 100%;
+        overflow-y: auto;
+
+    }
+
+    .left-part::-webkit-scrollbar{
+        display: none;
+    }
+
+    .right-part{
+        flex: 1;
+        margin-top: 20px;
+    }
+
+    .title{
+        margin-bottom: 12px;
+    }
+
+    .suggetions{
+        margin-top: 40px;
+    }
+}

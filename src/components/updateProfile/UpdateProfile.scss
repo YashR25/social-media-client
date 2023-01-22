@@ -1,0 +1,61 @@
+.UpdateProfile{
+    .container{
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .left-part{
+        flex: 1;
+
+        .input-user-img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .labelImg{
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                border: 2px var(--accent-color) dashed;
+                cursor: pointer;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .inputImg{
+                display: none;
+            }
+        }
+    }
+    .right-part{
+        flex: 3;
+
+        input{
+            display: block;
+            padding: 4px 8px;
+            width: 100%;
+            margin-top: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-primary{
+            width: fit-content;
+            padding: 10px 40px;
+        }
+
+        .delete-account{
+            margin-top: 16px;
+            background-color: red;
+        }
+
+        form{
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+        }
+    }
+}
